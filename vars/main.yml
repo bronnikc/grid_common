@@ -1,0 +1,36 @@
+---
+packages :  nano,mc,oracle-database-server-12cR2-preinstall,xorg-x11-server-Xorg,xorg-x11-xauth,xorg-x11-apps
+cvuqdisk: 'cvuqdisk-1.0.10-1.rpm'
+stage_dir: /u01/app/stage
+grid_version:  "12.2"
+###
+grid_home:
+ oracle_base: /u01/app/grid
+ oracle_home: "{{'/u01/app/'+grid_version+'/grid'}}"
+ oracle_inventory: /u01/app/oraInventory
+ oracle_user: oracle
+ oracle_install_group:  oinstall
+ scan_listener: rac.dcteam.local
+ cluster_name: 'ora-cluster-1'  
+ SYSASMPassword: 'DcteamPass2020'
+ ASMNMPPassword: 'DcteamPass2020'
+ votegroup: 'VOTE_DISK'
+ public_eth:
+  subnetaddress: '192.168.10.0'
+  interfacename: 'eth1'
+ private_eth:
+   subnetaddress: '10.10.10.0'
+   interfacename: 'eth2' 
+
+# vote_disk:
+#   - {disk: '/dev/sdd',label: 'VOTE1'}
+#   - {disk: '/dev/sdc' ,label: 'VOTE2'}
+#   - {disk: 'dev/sde', label: 'VOTE3'}
+
+# nodes:
+#   - {name: 'node1',vip_name: 'node1-vip', ip_addr: '192.168.10.212'}
+#   - {name: 'node2',vip_name: 'node2-vip',ip_addr: '192.168.10.213'}
+
+# master_node:
+#   name: 'node1'
+#   ip_addr: '192.168.10.212'
