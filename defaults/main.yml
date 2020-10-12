@@ -2,6 +2,7 @@
 # defaults file for oracle.grid_home
 oracle_password:          "0ra6oo"
 ora_archive_file_url:       "/vagrant_software/grid.zip"
+grid_version:  "12.2"
 
 vote_disk:
   - {disk: '/dev/sdd',label: 'VOTE1'}
