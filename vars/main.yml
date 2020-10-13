@@ -1,5 +1,5 @@
 ---
-packages :  nano,mc,oracle-database-server-12cR2-preinstall,xorg-x11-server-Xorg,xorg-x11-xauth,xorg-x11-apps
+packages :  nano,mc,oracle-database-server-12cR2-preinstall,xorg-x11-server-Xorg,xorg-x11-xauth
 cvuqdisk: 'cvuqdisk-1.0.10-1.rpm'
 stage_dir: /u01/app/stage
 grid_version:  "12.2"
