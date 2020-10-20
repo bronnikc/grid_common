@@ -3,7 +3,6 @@
 oracle_password:          "0ra6oo"
 grid_version:  "12.2"
 ora_archive_file_url:     "http://cloud.dcteam.ru/s/ebvh8Cm2OQ9H1Li/download"
-grid_version:  "12.2"
 
 vote_disk:
   - {disk: '/dev/sdd',label: 'VOTE1'}
