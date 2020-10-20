@@ -10,17 +10,17 @@ grid_home:
  oracle_inventory: /u01/app/oraInventory
  oracle_user: oracle
  oracle_install_group:  oinstall
- scan_listener: rac.dcteam.local
- cluster_name: 'ora-cluster-1'  
+ scan_listener: "{{ scan_listener }}"
+ cluster_name:   "{{ cluster_name }}"
  SYSASMPassword: 'DcteamPass2020'
  ASMNMPPassword: 'DcteamPass2020'
  votegroup: 'VOTE_DISK'
  public_eth:
-  subnetaddress: '192.168.10.0'
-  interfacename: 'eth1'
+  subnetaddress: '192.168.1.0'
+  interfacename: 'ens192'
  private_eth:
-   subnetaddress: '10.10.10.0'
-   interfacename: 'eth2' 
+   subnetaddress: '10.0.0.0'
+   interfacename: 'ens224' 
 
 # vote_disk:
 #   - {disk: '/dev/sdd',label: 'VOTE1'}

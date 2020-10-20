@@ -1,7 +1,7 @@
 ---
 # defaults file for oracle.grid_home
 oracle_password:          "0ra6oo"
-ora_archive_file_url:       "/vagrant_software/grid.zip"
+ora_archive_file_url:     "http://cloud.dcteam.ru/s/ebvh8Cm2OQ9H1Li/download"
 
 vote_disk:
   - {disk: '/dev/sdd',label: 'VOTE1'}
@@ -11,3 +11,7 @@ vote_disk:
 nodes:
   - {name: 'node1',vip_name: 'node1-vip', ip_addr: '192.168.10.212'}
   - {name: 'node2',vip_name: 'node2-vip',ip_addr: '192.168.10.213'}
+
+scan_listener: rac.dcteam.local
+cluster_name: 'ora-cluster-1' 
+ 
