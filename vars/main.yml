@@ -21,6 +21,7 @@ grid_home:
    subnetaddress: '10.0.0.0'
    interfacename: 'ens224' 
 
+node: "{{_nodes | from_json}}"
 # vote_disk:
 #   - {disk: '/dev/sdd',label: 'VOTE1'}
 #   - {disk: '/dev/sdc' ,label: 'VOTE2'}
