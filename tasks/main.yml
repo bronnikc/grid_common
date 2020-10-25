@@ -1,6 +1,34 @@
 ---
-# tasks file for oracle.oracle_common
-- debug: 
-    var=grid_home
-- debug: 
-    var=nodes
+#get public and private subnet address
+- name: "Set variables"
+  block:
+   - set_fact:
+      _public_eth:
+        subnetaddress: '{{ _iface.value.ipv4.network }}'
+        interfacename: '{{ public_iface }}'
+     with_dict: "{{ ansible_facts }}"
+     loop_control:
+       loop_var: _iface 
+       label: "[search public inerface subnet  for {{ public_iface }} ]" 
+     when: _iface.key == public_iface
+   - set_fact:
+      _private_eth:
+        subnetaddress: '{{ _iface.value.ipv4.network }}'
+        interfacename: '{{ private_iface }}'
+     with_dict: "{{ ansible_facts }}"
+     loop_control:
+       loop_var: _iface 
+       label: "[search private inerface subnet  for {{ private_iface }} ]" 
+     when: _iface.key == private_iface  
+   # update global variable grid_home
+   - set_fact:
+        grid_home: "{{ grid_home | combine(new_item, recursive=true) }}"
+     vars:
+        new_item: { 'private_eth' : "{{ _private_eth }}"} 
+     with_dict: "{{ grid_home }}"
+   - set_fact:
+        grid_home: "{{ grid_home | combine(new_item, recursive=true) }}"
+     vars:
+        new_item: { 'public_eth' : "{{ _public_eth }}"} 
+     with_dict: "{{ grid_home }}"
+  no_log: true
