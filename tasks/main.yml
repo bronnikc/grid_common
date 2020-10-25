@@ -1,2 +1,6 @@
 ---
 # tasks file for oracle.oracle_common
+- debug: 
+    var=grid_home
+- debug: 
+    var=nodes
