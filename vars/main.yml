@@ -15,10 +15,10 @@ grid_home:
  ASMNMPPassword: 'DcteamPass2020'
  votegroup: 'VOTE_DISK'
  public_eth:
-  subnetaddress: '192.168.1.0'
+  subnetaddress: '0.0.0.0'
   interfacename: 'ens192'
  private_eth:
-   subnetaddress: '10.0.0.0'
+   subnetaddress: '0.0.0.0'
    interfacename: 'ens224' 
 
 #nodes: "{{_nodes | from_json}}"
