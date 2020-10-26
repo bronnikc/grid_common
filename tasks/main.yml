@@ -1,6 +1,5 @@
 ---
 #get public and private subnet address
-- debug: var=grid_home
 - name: "Set variables"
   block:
    - set_fact:
