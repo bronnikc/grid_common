@@ -15,4 +15,6 @@ ora_archive_file_url:     "http://cloud.dcteam.ru/s/ebvh8Cm2OQ9H1Li/download"
 
 scan_listener: rac.dcteam.local
 cluster_name: 'ora-cluster-1' 
+sysasmpassword: 'DcteamPass2020'
+asmnmppassword : 'DcteamPass2020'
  

@@ -11,8 +11,8 @@ grid_home:
  oracle_install_group:  oinstall
  scan_listener: "{{ scan_listener }}"
  cluster_name:   "{{ cluster_name }}"
- SYSASMPassword: 'DcteamPass2020'
- ASMNMPPassword: 'DcteamPass2020'
+ SYSASMPassword: "{{ sysasmpassword }}"
+ ASMNMPPassword: "{{ asmnmppassword }}"
  votegroup: 'VOTE_DISK'
  public_eth:
   subnetaddress: '0.0.0.0'
@@ -20,9 +20,8 @@ grid_home:
  private_eth:
    subnetaddress: '0.0.0.0'
    interfacename: 'ens0' 
-
-nodes: "{{_nodes | from_json}}"
-vote_disk: "{{_vote_disk | from_json}}"
+#nodes: "{{_nodes | from_json}}"
+#vote_disk: "{{_vote_disk | from_json}}"
 # vote_disk:
 #   - {disk: '/dev/sdd',label: 'VOTE1'}
 #   - {disk: '/dev/sdc' ,label: 'VOTE2'}

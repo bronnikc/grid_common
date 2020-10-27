@@ -1,31 +1,62 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+It's a common role for installation ORACLE GRID INfrastructure.
 
-Requirements
-------------
+Setup variables: 
+ - `grid_home`
+ - `nodes`
+ - `vote_disk`
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- `stage_dir`  - default dir to download installation source and logs., default /u01/app/stage
+- `ora_archive_file_url` - installation source
+- `grid_version` - GRID_INSTALLATION version, default '12.2'
+- `oracle_password` - password for oracle user, default "0ra6oo"
+- `scan_listener`
+- `cluster_name`
+- `sysasmpassword` -  default "DcteamPass2020"
+- `asmnmppassword` -  default "DcteamPass2020"
+- `nodes` - Node for isntallation GRID, if using DNS ip_addr may be a node name.
+```yaml
+nodes:
+   - {name: 'node1',vip_name: 'node1-vip', ip_addr: '192.168.10.212'}
+   - {name: 'node2',vip_name: 'node2-vip',ip_addr: '192.168.10.213'}
+```
+- `vote_disk` - disks for OCR AND VOTING FILES
+```yaml
+vote_disk:
+  - {disk: '/dev/sdd',label: 'VOTE1'}
+  - {disk: '/dev/sdc' ,label: 'VOTE2'}
+  - {disk: '/dev/sde', label: 'VOTE3'}
+```  
+- `public_iface` - Inerface for public network
+- `private_iface` - Inerface for private network
 
 Example Playbook
 ----------------
-
+Install using ansible galaxy : ansible-galaxy install -f git+https://git.apps.okd.dcteam.local/oracle-ansible/grid_common.git
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+        - role: grid_common
+          ora_archive_file_url : '/vargant_shared/grid.zip'
+          nodes:
+             - {name: "node1",vip_name: "node1-vip", ip_addr: "192.168.1.1"}
+            -  {name: "node2",vip_name: "node2_vip", ip_addr: "192.168.1.2"}
+          vote_disk:
+            - {disk: '/dev/sdb',label: 'VOTE1'}
+            - {disk: '/dev/sdc' ,label: 'VOTE2'}
+            - {disk: '/dev/sdd', label: 'VOTE3'}    
+          scan_listener: 'rac1-scan'
+          cluster_name: 'cluster-rac1'  
+          public_iface: 'ens192' 
+          private_iface: 'ens224'
+
+
 
 License
 -------
