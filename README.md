@@ -8,7 +8,6 @@ Setup variables:
  - `nodes`
  - `vote_disk`
 
-
 Role Variables
 --------------
 - `stage_dir`  - default dir to download installation source and logs., default /u01/app/stage
@@ -44,10 +43,10 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
         - role: grid_common
           ora_archive_file_url : '/vargant_shared/grid.zip'
-          nodes:
+          cluster_nodes:
              - {name: "node1",vip_name: "node1-vip", ip_addr: "192.168.1.1"}
             -  {name: "node2",vip_name: "node2_vip", ip_addr: "192.168.1.2"}
-          vote_disk:
+          voting_disks:
             - {disk: '/dev/sdb',label: 'VOTE1'}
             - {disk: '/dev/sdc' ,label: 'VOTE2'}
             - {disk: '/dev/sdd', label: 'VOTE3'}    
