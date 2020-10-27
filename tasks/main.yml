@@ -31,4 +31,10 @@
      vars:
         new_item: { 'public_eth' : "{{ _public_eth }}"} 
      with_dict: "{{ grid_home }}"
+   # set up nodes vars
+   - set_fact:
+        nodes: "{{ cluster_nodes }}"
+   # set up vote_disks
+   - set_fact:
+       vote_disk: "{{ voting_disks }}"       
   no_log: true
