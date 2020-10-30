@@ -37,4 +37,4 @@
    # set up vote_disks
    - set_fact:
        vote_disk: "{{ voting_disks }}"       
-  #no_log: true
+  no_log: true
