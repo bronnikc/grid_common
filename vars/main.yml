@@ -14,6 +14,7 @@ grid_home:
  SYSASMPassword: "{{ sysasmpassword }}"
  ASMNMPPassword: "{{ asmnmppassword }}"
  votegroup: 'VOTE_DISK'
+ votegroup_redundancy: 'EXTERNAL'
  public_eth:
   subnetaddress: '0.0.0.0'
   interfacename: 'ens0'
