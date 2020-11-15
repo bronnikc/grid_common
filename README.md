@@ -36,13 +36,13 @@ vote_disk:
 
 Example Playbook
 ----------------
-Install using ansible galaxy : ansible-galaxy install -f git+https://git.apps.okd.dcteam.local/oracle-ansible/grid_common.git
+Install using ansible galaxy : ansible-galaxy install -f git+https://....../grid_common.git
 
 
     - hosts: servers
       roles:
         - role: grid_common
-          ora_archive_file_url : '/vargant_shared/grid.zip'
+          ora_archive_file_url : 'grid.zip'
           cluster_nodes:
              - {name: "node1",vip_name: "node1-vip", ip_addr: "192.168.1.1"}
             -  {name: "node2",vip_name: "node2_vip", ip_addr: "192.168.1.2"}
@@ -54,3 +54,17 @@ Install using ansible galaxy : ansible-galaxy install -f git+https://git.apps.ok
           cluster_name: 'cluster-rac1'  
           public_iface: 'ens192' 
           private_iface: 'ens224'
+        - role: grid_install    
+          ora_archive_file_url:  "..."
+        - role: install_patch
+          type_install_patch: 'gi_install'
+          opatch_update: true
+          home:
+            type_home: 'GI'
+            oracle_version: '12.2'
+          patch:
+            archive_url: "....."
+            temp_dir: '/tmp'
+            patch_id: 31305382
+            patch_number: [31312468,31309299,31245159,26839277,30888810]
+    - role: grid_configure  
