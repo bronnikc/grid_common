@@ -16,8 +16,8 @@ Role Variables
 - `oracle_password` - password for oracle user, default "0ra6oo"
 - `scan_listener`
 - `cluster_name`
-- `sysasmpassword` -  default "DcteamPass2020"
-- `asmnmppassword` -  default "DcteamPass2020"
+- `sysasmpassword` -  
+- `asmnmppassword` -  
 - `nodes` - Node for isntallation GRID, if using DNS ip_addr may be a node name.
 ```yaml
 nodes:
